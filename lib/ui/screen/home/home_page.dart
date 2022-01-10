@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('You have pushed the button this many times:'),
+            Text('you_have_press'.tr),
             Obx(() => Text(
                   '${controller.counter.value}',
                   style: TextStyleDefault.mainTextStyle,

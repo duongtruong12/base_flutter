@@ -1,8 +1,8 @@
 import 'dart:collection';
 import 'dart:ui';
 
-import 'package:base_flutter/lang/text/strings.dart';
-import 'package:base_flutter/lang/text/strings_vi.dart';
+import 'package:base_flutter/lang/text/st_en_us.dart';
+import 'package:base_flutter/lang/text/st_vi_vn.dart';
 import 'package:get/get.dart';
 
 class LocalizationService extends Translations {
@@ -10,7 +10,7 @@ class LocalizationService extends Translations {
   static final locale = _getLocaleFromLanguage();
 
 // fallbackLocale là locale default nếu locale được set không nằm trong những Locale support
-  static const fallbackLocale = Locale('en', 'US');
+  static const fallbackLocale = Locale('vi', 'vi_VN');
 
 // language code của những locale được support
   static final langCodes = [
@@ -20,8 +20,8 @@ class LocalizationService extends Translations {
 
 // các Locale được support
   static final locales = [
-    const Locale('en', 'US'),
-    const Locale('vi', 'VN'),
+    const Locale('en', 'en_US'),
+    const Locale('vi', 'vi_VN'),
   ];
 
 // cái này là Map các language được support đi kèm với mã code của lang đó: cái này dùng để đổ data vào Dropdownbutton và set language mà không cần quan tâm tới language của hệ thống
@@ -43,14 +43,7 @@ class LocalizationService extends Translations {
       };
 
   static Locale _getLocaleFromLanguage({String? langCode}) {
-    var lang = langCode;
-    if (langCode == null) {
-      if (Get.deviceLocale != null) {
-        lang = Get.deviceLocale!.languageCode;
-      } else {
-        lang = 'en';
-      }
-    }
+    var lang = 'vi';
     for (int i = 0; i < langCodes.length; i++) {
       if (lang == langCodes[i]) return locales[i];
     }
