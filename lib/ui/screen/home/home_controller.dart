@@ -1,8 +1,9 @@
-import 'package:base_flutter/data/repositories/home_repository.dart';
 import 'package:get/get.dart';
 
+import '../../../data/repositories/default_repository.dart';
+
 class HomeController extends GetxController {
-  final HomeRepository repository;
+  final DefaultRepository repository;
   RxInt counter = 0.obs;
 
   HomeController({required this.repository});

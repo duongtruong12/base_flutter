@@ -3,16 +3,16 @@ import 'package:get/get.dart';
 
 abstract class Const {
   static final Map<int, Color> colorMap = {
-    50: bgMenu.withOpacity(0.1),
-    100: bgMenu.withOpacity(0.2),
-    200: bgMenu.withOpacity(0.3),
-    300: bgMenu.withOpacity(0.4),
-    400: bgMenu.withOpacity(0.5),
-    500: bgMenu.withOpacity(0.6),
-    600: bgMenu.withOpacity(0.7),
-    700: bgMenu.withOpacity(0.8),
-    800: bgMenu.withOpacity(0.9),
-    900: bgMenu.withOpacity(1),
+    50: mainColor.withOpacity(0.1),
+    100: mainColor.withOpacity(0.2),
+    200: mainColor.withOpacity(0.3),
+    300: mainColor.withOpacity(0.4),
+    400: mainColor.withOpacity(0.5),
+    500: mainColor.withOpacity(0.6),
+    600: mainColor.withOpacity(0.7),
+    700: mainColor.withOpacity(0.8),
+    800: mainColor.withOpacity(0.9),
+    900: mainColor.withOpacity(1),
   };
 
   static final materialColor = MaterialColor(0xFF00479A, colorMap);
@@ -34,8 +34,6 @@ abstract class Const {
 
   static const borderColorDialog = Color(0xffe9e9ec);
 
-  static Color iconDefaultColor = hexToColor('#1E1F20');
-
   // resizable
   static double resizeVer(double size) {
     return Get.height / designHeight * size;
@@ -45,83 +43,31 @@ abstract class Const {
     return Get.width / designWidth * size;
   }
 
-  static List<String> listGenderSelect = ["選択無し", "女", "男"];
-
-  // appbar icon size
-  static double appBarIconSize = 38.0;
-
   // app's background color
   static const bgColor = Color(0xFFF7F7F7);
-  static const danger = Color(0xFFFF4D4F);
-
-  //rgba(30, 31, 32, 0.2)
-  static const grey02 = Color.fromRGBO(30, 31, 32, 0.2);
-
-  //rgba(30, 31, 32, 0.15)
-  static const grey015 = Color.fromRGBO(30, 31, 32, 0.15);
-
-  static const grey06 = Color.fromRGBO(30, 31, 32, 0.6);
-  static const grey158 = Color.fromRGBO(158, 158, 158, 1);
-  static const grey213 = Color.fromRGBO(213, 213, 213, 1);
-
-  // rgba(143, 146, 161, 0.2)
-  static const borderColor = Color.fromRGBO(143, 146, 161, 0.2);
-
-  // search background
-  static const bgSearch = Color(0xFFF9B801);
-
-  //background ticket
-  static const bgTicket = Color(0xFFF2AB2B);
-
-  //background notification
-  static const bgNotification = Color(0xFFFF7875);
-
-  // faq question
-  static final blueText = hexToColor("#00479A");
-
-  // camera icon background color
-  static const cameraBgColor = Color(0xFF52CFC5);
-
-  // camera icon certificate background color
-  static const certificateBgColor = Color(0xFFF9B801);
-
-  // camera icon disability background color
-  static const disabilityBgColor = Color(0xFFFFA5B5);
+  static const bgColorApp = Color(0xFFFAFAFA);
+  static const bgColorMain = Color(0xFFD9E3E9);
 
   // active menu color
   // background menu color
-  static const bgMenu = Color(0xFF00479A);
-
-  // background sub menu color
-  static const bgSubMenu = Color(0xFFF7F7F7);
-
-  // background menu car
-  static const bgCar = Color.fromRGBO(82, 207, 197, 0.2);
-  static const bgHome = Color.fromRGBO(0, 159, 232, 1);
-  static final activeMenuColor = hexToColor("#00479A");
-  static final ticketType1 = hexToColor("#00479A");
-  static final ticketType2 = hexToColor("#08979C");
-  static final ticketType3 = hexToColor("#C41D7F");
-
-  // text bold color
-  static final textBold = hexToColor('#1E1F20');
-
-  // text normal color
-  static final typeTicketBackground = hexToColor('#52CFC5');
-
-  static final textNormal = hexToColor('#8F92A1');
-
-  // body background color
-  static final bgBody = hexToColor('#F7F7F7');
-
-  // ticket appbar height
-  static double ticketBarHeight = 70;
-  static const displayBtnColor = Color(0xFF00479A);
-  static const configurationBtnColor = Color(0xFFF9B801);
-
-  static const white = Color(0xFFFFFFFF);
-
-  //yellow background in menu
-  static final yellow = hexToColor('#F9B801');
-  static const black = Color.fromRGBO(30, 31, 32, 1);
+  static const mainColor = Color(0xFF00456E);
+  static const hintColor = Color(0xFF818181);
+  static const textColor = Color(0xFF343539);
+  static const borderDefaultColor = Color(0xFFE5E5E5);
+  static const errorColor = Color(0xFFEB1111);
+  static const redColor = Color(0xFFE22940);
+  static const disableColor = Color(0xFFDCDCDC);
+  static const greyColor = Color(0xFFEDEDED);
+  static const deleteGreyColor = Color(0xFF777777);
+  static const lineColor = Color(0xFFE7E7E7);
+  static const subColor = Color(0xFFF58220);
+  static const unselectedColor = Color(0xFF72767E);
+  static const linearGradient1 = Color(0xFF056BA8);
+  static const linearGradient2 = Color(0xFF01507E);
+  static const cutBg = Color(0xFFDDD270);
+  static const cutItem = Color(0xFF70C3DD);
+  static const listGradient = [
+    Const.linearGradient1,
+    Const.linearGradient2,
+  ];
 }

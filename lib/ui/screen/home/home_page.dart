@@ -1,15 +1,15 @@
-import 'package:base_flutter/data/api/api_provider.dart';
-import 'package:base_flutter/data/repositories/home_repository.dart';
-import 'package:base_flutter/ui/screen/home/home_controller.dart';
-import 'package:base_flutter/utils/const.dart';
-import 'package:base_flutter/utils/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../../data/api/api_provider.dart';
+import '../../../data/repositories/default_repository.dart';
+import '../../../utils/text_style.dart';
+import 'home_controller.dart';
 
 class HomePage extends StatelessWidget {
   final controller = Get.put(
     HomeController(
-      repository: HomeRepository(apiProvider: ApiProvider()),
+      repository: DefaultRepository(apiProvider: ApiProvider()),
     ),
   );
 
@@ -38,7 +38,6 @@ class HomePage extends StatelessWidget {
           controller.incrementCounter();
         },
         tooltip: 'increment'.tr,
-        backgroundColor: Const.bgMenu,
         child: const Icon(Icons.add),
       ),
     );

@@ -1,9 +1,9 @@
-import 'package:base_flutter/data/repositories/splash_repository.dart';
-import 'package:base_flutter/routes/app_pages.dart';
 import 'package:get/get.dart';
+import '../../../data/repositories/default_repository.dart';
+import '../../../routes/app_pages.dart';
 
 class SplashController extends GetxController {
-  final SplashRepository repository;
+  final DefaultRepository repository;
   RxInt counter = 0.obs;
 
   SplashController({required this.repository});

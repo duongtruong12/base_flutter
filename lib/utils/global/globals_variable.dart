@@ -1,10 +1,13 @@
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:logger/logger.dart';
 
-String? idToken;
 bool isMaintenance = false;
-int tabIndex = 0;
 RxBool loading = RxBool(false);
+String? email;
+String? password;
+dynamic data;
+final picker = ImagePicker();
 final logger = Logger(
     printer:
         PrettyPrinter(methodCount: 1, printTime: false, printEmojis: true));

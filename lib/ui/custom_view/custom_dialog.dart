@@ -1,125 +1,93 @@
-import 'package:base_flutter/utils/const.dart';
-import 'package:base_flutter/utils/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class CustomDialog extends StatelessWidget {
-  final Widget content;
-  final Function? actionCancel;
-  final Function actionConfirm;
-  final String? confirmLabel;
-  final String? cancelLabel;
-  final bool reverse;
+import '../../utils/const.dart';
+import '../../utils/text_style.dart';
 
-  const CustomDialog(
+class CustomConfirmDialog extends StatelessWidget {
+  const CustomConfirmDialog(
       {Key? key,
-      required this.content,
-      this.actionCancel,
-      required this.actionConfirm,
-      this.confirmLabel,
-      this.reverse = false,
-      this.cancelLabel})
+      this.title,
+      this.content,
+      this.onPressedConfirm,
+      this.onPressedCancel,
+      this.confirmText,
+      this.cancelText})
       : super(key: key);
+  final String? title;
+  final String? content;
+  final String? cancelText;
+  final String? confirmText;
+  final GestureTapCallback? onPressedCancel;
+  final GestureTapCallback? onPressedConfirm;
 
   @override
   Widget build(BuildContext context) {
-    Widget _buildCancelButton() {
-      return Expanded(
-        child: Padding(
-          padding: EdgeInsets.only(left: Const.resizeVer(11)),
-          child: GestureDetector(
-              child: Container(
-                  padding: EdgeInsets.fromLTRB(
-                      0, Const.resizeHoz(18), 0, Const.resizeHoz(18)),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius:
-                        BorderRadius.all(Radius.circular(Const.resizeHoz(12))),
-                    border: Border.all(
-                        color: Const.borderColorDialog,
-                        width: 1,
-                        style: BorderStyle.solid),
+    return Card(
+        margin: const EdgeInsets.symmetric(horizontal: 40),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                children: [
+                  Text(
+                    title ?? '',
+                    style: TextStyleDefault.blackTextStyle,
+                    textAlign: TextAlign.center,
                   ),
-                  child: Center(
-                    child: Text(
-                      cancelLabel ?? 'cancel'.tr,
-                      style: TextStyleDefault.buttonTextStyle,
-                    ),
-                  )),
-              onTap: () {
-                if (actionCancel != null) actionCancel!();
-              }),
-        ),
-      );
-    }
-
-    Widget _buildConfirmButton() {
-      return Expanded(
-        child: GestureDetector(
-          child: Container(
-              padding: EdgeInsets.fromLTRB(
-                  0, Const.resizeHoz(18), 0, Const.resizeHoz(18)),
-              decoration: BoxDecoration(
-                color: Const.activeMenuColor,
-                borderRadius:
-                    BorderRadius.all(Radius.circular(Const.resizeHoz(12))),
-                border: Border.all(
-                    color: Const.borderColorDialog,
-                    width: 1,
-                    style: BorderStyle.solid),
+                  const SizedBox(height: 12),
+                  Text(
+                    content ?? '',
+                    style: TextStyleDefault.hintTextStyle,
+                    textAlign: TextAlign.center,
+                  ),
+                ],
               ),
-              child: Center(
-                child: Text(
-                  confirmLabel ?? 'confirm'.tr,
-                  style: TextStyleDefault.buttonTextStyle,
-                ),
-              )),
-          onTap: () {
-            actionConfirm();
-          },
-        ),
-      );
-    }
-
-    return AlertDialog(
-      insetPadding: EdgeInsets.symmetric(horizontal: Const.resizeHoz(28)),
-      contentPadding: EdgeInsets.fromLTRB(
-          Const.resizeHoz(28), Const.resizeHoz(28), Const.resizeHoz(28), 0),
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(Const.resizeHoz(27)))),
-      content: Wrap(children: [
-        Center(child: content),
-      ]),
-      actions: <Widget>[
-        Container(
-          padding:
-              EdgeInsets.only(top: 35.h, bottom: 18.h, right: 18.w, left: 18.w),
-          width: Get.width,
-          child: GestureDetector(
-            child: !reverse
-                ? Row(
-                    children: [
-                      _buildConfirmButton(),
-                      actionCancel != null
-                          ? _buildCancelButton()
-                          : const SizedBox()
-                    ],
-                  )
-                : Row(
-                    children: [
-                      actionCancel != null
-                          ? _buildCancelButton()
-                          : const SizedBox(),
-                      _buildConfirmButton(),
-                    ],
+            ),
+            const SizedBox(height: 18),
+            Container(color: Const.borderColorDialog, height: 0.6),
+            IntrinsicHeight(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: InkWell(
+                      onTap: () {
+                        Get.back();
+                        if (onPressedCancel != null) onPressedCancel!();
+                      },
+                      child: Padding(
+                          padding: const EdgeInsets.all(12),
+                          child: Text(
+                            cancelText ?? 'cancel'.tr,
+                            textAlign: TextAlign.center,
+                            style: TextStyleDefault.normalBlackTextStyleBold,
+                          )),
+                    ),
                   ),
-            onTap: () {
-              Get.back(result: true);
-            },
-          ),
-        ),
-      ],
-    );
+                  Container(width: 0.6, color: Const.borderColorDialog),
+                  Expanded(
+                    child: InkWell(
+                      onTap: () {
+                        Get.back();
+                        if (onPressedConfirm != null) onPressedConfirm!();
+                      },
+                      child: Padding(
+                          padding: const EdgeInsets.all(12),
+                          child: Text(
+                            confirmText ?? 'confirm'.tr,
+                            textAlign: TextAlign.center,
+                            style: TextStyleDefault.normalErrorTextStyleBold,
+                          )),
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ));
   }
 }
