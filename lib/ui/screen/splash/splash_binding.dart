@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-
 import '../../../data/api/api_provider.dart';
 import '../../../data/repositories/default_repository.dart';
 import 'splash_controller.dart';

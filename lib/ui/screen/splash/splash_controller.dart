@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
+
 import '../../../data/repositories/default_repository.dart';
 import '../../../routes/app_pages.dart';
 
 class SplashController extends GetxController {
   final DefaultRepository repository;
-  RxInt counter = 0.obs;
 
   SplashController({required this.repository});
 
@@ -12,6 +12,6 @@ class SplashController extends GetxController {
   void onInit() async {
     super.onInit();
     await Future<dynamic>.delayed(const Duration(seconds: 2))
-        .then((value) => Get.offNamed(Routes.home));
+        .then((value) => Get.offNamed(Routes.introduction));
   }
 }

@@ -42,6 +42,7 @@ class MyApp extends StatelessWidget {
         },
         theme: ThemeData(
           primarySwatch: Const.materialColor,
+          fontFamily: 'Inter',
           visualDensity: VisualDensity.adaptivePlatformDensity,
           scaffoldBackgroundColor: Const.bgColorApp,
           cardTheme: const CardTheme(
