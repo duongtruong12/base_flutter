@@ -32,13 +32,13 @@ class CustomButtonRounded extends StatelessWidget {
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
             textStyle: MaterialStateProperty.all<TextStyle?>(
-                TextStyleDefault.mediumWhiteTextStyle),
+                TextStyleDefault.buttonWhiteTextStyle),
           ),
         ),
       ),
       child: SizedBox(
         width: width ?? double.infinity,
-        height: height ?? 45,
+        height: height ?? 58,
         child: ElevatedButton(
           child: widget,
           onPressed: onPressed,
@@ -98,28 +98,32 @@ class CustomButtonFlat extends StatelessWidget {
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
             textStyle: MaterialStateProperty.all<TextStyle?>(
-                TextStyleDefault.mediumWhiteTextStyle),
+                TextStyleDefault.buttonWhiteTextStyle),
           ),
         ),
       ),
-      child: TextButton(
-        key: key,
-        child: widget,
-        onPressed: onPressed,
-        style: ButtonStyle(
-          padding: MaterialStateProperty.all<EdgeInsetsGeometry?>(padding),
-          elevation: MaterialStateProperty.all<double>(elevation ?? 0),
-          backgroundColor:
-              MaterialStateProperty.all<Color?>(color ?? Const.mainColor),
-          foregroundColor:
-              MaterialStateProperty.all<Color?>(textColor ?? Colors.white),
-          shape: MaterialStateProperty.all<OutlinedBorder>(
-            RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(
-                    borderRadius != null ? borderRadius! : 40),
-                side: BorderSide(
-                  color: borderColor != null ? borderColor! : Const.mainColor,
-                )),
+      child: SizedBox(
+        width: width,
+        height: height ?? 58,
+        child: TextButton(
+          key: key,
+          child: widget,
+          onPressed: onPressed,
+          style: ButtonStyle(
+            padding: MaterialStateProperty.all<EdgeInsetsGeometry?>(padding),
+            elevation: MaterialStateProperty.all<double>(elevation ?? 0),
+            backgroundColor:
+                MaterialStateProperty.all<Color?>(color ?? Const.mainColor),
+            foregroundColor:
+                MaterialStateProperty.all<Color?>(textColor ?? Colors.white),
+            shape: MaterialStateProperty.all<OutlinedBorder>(
+              RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(
+                      borderRadius != null ? borderRadius! : 40),
+                  side: BorderSide(
+                    color: borderColor != null ? borderColor! : Const.mainColor,
+                  )),
+            ),
           ),
         ),
       ),
@@ -158,13 +162,13 @@ class CustomButtonIcon extends StatelessWidget {
         textButtonTheme: TextButtonThemeData(
           style: ButtonStyle(
             textStyle: MaterialStateProperty.all<TextStyle?>(
-                TextStyleDefault.mediumWhiteTextStyle),
+                TextStyleDefault.buttonWhiteTextStyle),
           ),
         ),
       ),
       child: SizedBox(
         width: width ?? double.infinity,
-        height: height ?? 45,
+        height: height ?? 58,
         child: ElevatedButton.icon(
           onPressed: onPressed,
           style: ButtonStyle(

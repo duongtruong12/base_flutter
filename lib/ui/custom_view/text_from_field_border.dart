@@ -314,7 +314,7 @@ class _TextFormFieldBorderLabelState extends State<TextFormFieldBorderLabel>
             focusNode: focusNode,
             decoration: InputDecoration(
                 labelText: widget.labelText,
-                labelStyle: TextStyleDefault.smallGreyTextStyle,
+                labelStyle: TextStyleDefault.normalBlackTextStyle,
                 errorMaxLines: widget.errorMaxLines,
                 border: InputBorder.none,
                 enabledBorder: InputBorder.none,
