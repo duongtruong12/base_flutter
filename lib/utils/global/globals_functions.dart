@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:lottie/lottie.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -196,6 +197,16 @@ dismissKeyboard() {
   if (Get.context != null) {
     FocusScope.of(Get.context!).requestFocus(FocusNode());
   }
+}
+
+Widget getLottieImage(String assetName,
+    {BoxFit? boxFit, double? height, double? width}) {
+  return Lottie.asset(
+    'assets/lottie/$assetName.json',
+    height: height,
+    width: width,
+    fit: boxFit ?? BoxFit.cover,
+  );
 }
 
 Widget getSvgImage(String assetName,

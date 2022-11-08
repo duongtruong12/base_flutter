@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../utils/const.dart';
 import '../../utils/global/globals_functions.dart';
 import '../../utils/global/globals_variable.dart';
 
@@ -33,16 +32,9 @@ class LoadingOverlay extends StatelessWidget {
                     child: Container(
                       width: double.infinity,
                       height: double.infinity,
-                      color: Colors.white.withOpacity(0.8),
-                      child: const Center(
-                        child: SizedBox(
-                          height: 20,
-                          width: 20,
-                          child: CircularProgressIndicator(
-                            valueColor:
-                                AlwaysStoppedAnimation<Color>(Const.mainColor),
-                          ),
-                        ),
+                      color: Colors.black.withOpacity(0.7),
+                      child: Center(
+                        child: getLottieImage('loading', height: 250),
                       ),
                     ),
                   )
