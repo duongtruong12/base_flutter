@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -209,6 +210,11 @@ Widget getLottieImage(String assetName,
   );
 }
 
+void setStatusBarColor({Brightness brightness = Brightness.light}) {
+  SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarBrightness: brightness));
+}
+
 Widget getSvgImage(String assetName,
     {BoxFit? boxFit, double? height, double? width}) {
   return SvgPicture.asset(
@@ -337,8 +343,8 @@ Uri? convertStringToUri(String url) {
 openUrl(String? url) async {
   try {
     if (url != null && url.isNotEmpty) {
-      if (await canLaunch(url)) {
-        launch(url);
+      if (await canLaunchUrl(Uri.parse(url))) {
+        launchUrl(Uri.parse(url));
       }
     }
   } catch (e) {

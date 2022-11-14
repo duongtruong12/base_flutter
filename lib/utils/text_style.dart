@@ -18,7 +18,7 @@ abstract class TextStyleDefault {
       TextStyle(color: Const.textColor, fontSize: 16);
   static const mediumMainTextStyle =
       TextStyle(color: Const.mainColor, fontSize: 16);
-  static const mediumWhiteTextStyle =
+  static const buttonWhiteTextStyle =
       TextStyle(color: Colors.white, fontSize: 16);
   static const mediumBlackTextStyleBold = TextStyle(
       color: Const.textColor, fontSize: 16, fontWeight: FontWeight.bold);

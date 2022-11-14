@@ -6,10 +6,12 @@ class PagingListCustom extends StatefulWidget {
     this.onRefresh,
     this.onScrollDown,
     required this.childWidget,
+    this.isEmpty = false,
   }) : super(key: key);
   final ValueChanged<int>? onScrollDown;
   final ValueChanged<int>? onRefresh;
   final List<Widget> childWidget;
+  final bool isEmpty;
 
   @override
   _PagingListState createState() => _PagingListState();
@@ -17,13 +19,16 @@ class PagingListCustom extends StatefulWidget {
 
 class _PagingListState extends State<PagingListCustom>
     with SingleTickerProviderStateMixin {
-  int _page = 1;
+  int _page = 0;
   final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
     _scrollController.addListener(() {
+      if (widget.isEmpty) {
+        return;
+      }
       if (_scrollController.position.pixels ==
           _scrollController.position.maxScrollExtent) {
         _page++;
@@ -44,7 +49,7 @@ class _PagingListState extends State<PagingListCustom>
   Widget build(BuildContext context) {
     return RefreshIndicator(
       onRefresh: () async {
-        _page = 1;
+        _page = 0;
         if (widget.onRefresh != null) widget.onRefresh!(_page);
       },
       child: ListView(

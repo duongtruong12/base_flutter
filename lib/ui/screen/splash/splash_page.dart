@@ -17,6 +17,7 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    setStatusBarColor();
     return Scaffold(
       body: Center(
         child: Column(

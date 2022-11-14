@@ -1,3 +1,4 @@
+import 'package:base_flutter/utils/global/globals_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:introduction_screen/introduction_screen.dart';
@@ -48,6 +49,7 @@ class IntroductionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    setStatusBarColor();
     return SafeArea(
       child: IntroductionScreen(
         key: controller.introController,

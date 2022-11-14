@@ -1,3 +1,4 @@
+import 'package:base_flutter/utils/global/globals_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
+    setStatusBarColor();
     return ScreenUtilInit(
       designSize: const Size(375, 904),
       builder: (context) => GetMaterialApp(

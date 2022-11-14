@@ -45,16 +45,4 @@ const Map<String, String> vi = {
   'search': 'Tìm kiếm',
   'password': 'Mật khẩu',
   'password_old': 'Mật khẩu cũ',
-  'introduction_1': 'Sản phẩm đa dạng, uy tín',
-  'introduction_2': 'Mua sắm vật liệu trực tuyến',
-  'introduction_3': 'Hỗ trợ khách hàng tận tâm',
-  'introduction_content_1':
-      'It is a long established fact that a reader will be distracted by the readable content of ',
-  'introduction_content_2':
-      'It is a long established fact that a reader will be distracted by the readable content of ',
-  'introduction_content_3':
-      'It is a long established fact that a reader will be distracted by the readable content of ',
-  'next': 'Tiếp theo',
-  'skip': 'Bỏ qua',
-  'start_now': 'Bắt đầu ngay',
 };
